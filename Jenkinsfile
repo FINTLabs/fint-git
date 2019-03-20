@@ -13,9 +13,9 @@ pipeline {
                 branch 'master'
             }
             steps {
-                sh "docker tag ${GIT_COMMIT} dtr.fintlabs.no/jenkins/git:latest"
-                withDockerRegistry([credentialsId: 'dtr-fintlabs-no', url: 'https://dtr.fintlabs.no']) {
-                    sh "docker push dtr.fintlabs.no/jenkins/git:latest"
+                sh "docker tag ${GIT_COMMIT} fint/git:latest"
+                withDockerRegistry([credentialsId: 'asgeir-docker', url: '']) {
+                    sh "docker push fint/git:latest"
                 }
             }
         }
